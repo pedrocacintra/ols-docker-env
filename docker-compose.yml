@@ -24,6 +24,7 @@ services:
     env_file:
       - .env
     volumes:
+      - ./lsws/php:/usr/local/lsws/lsphp81/etc/php/8.1/litespeed/
       - ./lsws/conf:/usr/local/lsws/conf
       - ./lsws/admin-conf:/usr/local/lsws/admin/conf
       - ./bin/container:/usr/local/bin
