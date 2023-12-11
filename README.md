@@ -12,7 +12,7 @@ Install a lightweight WordPress container with OpenLiteSpeed Edge or Stable vers
 
 ## Configuration
 Edit the `.env` file to update the demo site domain, default MySQL user, and password.
-Feel free to check [Docker hub Tag page](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed/tags) if you want to update default openlitespeed and php versions. 
+Edit docker-compose.yaml with your Wordpress and Litespeed conf domains/subdomains
 
 ## Installation
 Clone this repository or copy the files from this repository into a new folder:
@@ -23,8 +23,17 @@ Open a terminal, `cd` to the folder in which `docker compose.yml` is saved, and 
 ```
 docker compose up
 ```
+*If you are using Traefik and Portainer: Open traefik container -> Scroll down to "Connected Networks -> Join "traefik_vpc" and "ols-docker-env_ols_vpc"
+
+### Starting a Demo Site
+After running the following command, you should be able to access the WordPress installation with the configured domain. By default the domain is http://localhost.
+```
+bash bin/demosite.sh
+```
 
 Note: If you wish to run a single web server container, please see the [usage method here](https://github.com/litespeedtech/ols-dockerfiles#usage).
+Feel free to check [Docker hub Tag page](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed/tags) if you want to update default openlitespeed and php versions. 
+
 
 ## Components
 The docker image installs the following packages on your system:
@@ -100,10 +109,7 @@ We strongly recommend you set your personal password right away.
 ```
 bash bin/webadmin.sh my_password
 ```
-### Starting a Demo Site
-After running the following command, you should be able to access the WordPress installation with the configured domain. By default the domain is http://localhost.
-```
-bash bin/demosite.sh
+
 ```
 ### Creating a Domain and Virtual Host
 ```
