@@ -23,9 +23,11 @@ Open a terminal, `cd` to the folder in which `docker compose.yml` is saved, and 
 ```
 docker compose up
 ```
-*If you are using Traefik and Portainer: Open traefik container -> Scroll down to "Connected Networks -> Join "traefik_vpc" and "ols-docker-env_ols_vpc"
+### If you are using Traefik + Portainer
+Open traefik's container inside Portainer-> Scroll down to "Connected Networks -> Join "traefik_vpc" and "ols-docker-env_ols_vpc"
+* If you can't see either of those, create the one missing, then add it.
 
-### Starting a Demo Site
+### Start The Site
 After running the following command, you should be able to access the WordPress installation with the configured domain. By default the domain is http://localhost.
 ```
 bash bin/demosite.sh
