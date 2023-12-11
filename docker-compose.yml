@@ -4,6 +4,8 @@ services:
     image: mariadb:10.5.9
     logging:
       driver: none
+    env_file:
+      - .env
     command: --max_allowed_packet=256M
     volumes:
       - "./data/db:/var/lib/mysql:delegated"
@@ -14,7 +16,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     restart: always
     networks:
-      - default
+      - ols_vpc
   litespeed:
     image: litespeedtech/openlitespeed:${OLS_VERSION}-${PHP_VERSION}
     logging:
@@ -28,26 +30,27 @@ services:
       - ./sites:/var/www/vhosts/
       - ./acme:/root/.acme.sh/
       - ./logs:/usr/local/lsws/logs/
-    ports:
-      - 80:80
-      - 443:443
-      - 443:443/udp
-      - 7080:7080
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wp.rule=Host(`wordpress.xxxxx.com`)" #Coloque o Seu Dominio Aqui
+      - "traefik.http.routers.wp.entrypoints=websecure"
+      - "traefik.http.services.wp.loadbalancer.server.port=80"
+      - "traefik.http.routers.wp.service=wp"
+      - "traefik.http.routers.wp.tls.certresolver=leresolver"
+      - "traefik.http.routers.ols.rule=Host(`conf.xxxxx.com`)" #Coloque o Seu Dominio Aqui
+      - "traefik.http.routers.ols.entrypoints=websecure"
+      - "traefik.http.services.ols.loadbalancer.server.port=7080"
+      - "traefik.http.routers.ols.service=ols"
+      - "traefik.http.routers.ols.tls.certresolver=leresolver"
     restart: always
     environment:
       TZ: ${TimeZone}
     networks:
-      - default
-  phpmyadmin:
-    image: bitnami/phpmyadmin:5.2.0-debian-11-r43
-    ports:
-      - 8080:8080
-      - 8443:8443
-    environment:
-        DATABASE_HOST: mysql
-    restart: always
-    networks:
-      - default
+      - ols_vpc
+      - traefik_vpc
+
 networks:
-  default:
+  ols_vpc:
     driver: bridge
+  traefik_vpc:
+    external: true
