@@ -24,7 +24,6 @@ services:
     env_file:
       - .env
     volumes:
-      - ./lsws/php/wp-config.php:/var/www/vhosts/localhost/html/wp-config.php
       - ./lsws/php/php.ini:/usr/local/lsws/lsphp81/etc/php/8.1/litespeed/php.ini
       - ./lsws/conf:/usr/local/lsws/conf
       - ./lsws/admin-conf:/usr/local/lsws/admin/conf
