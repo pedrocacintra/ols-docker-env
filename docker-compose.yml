@@ -40,7 +40,7 @@ services:
       - "traefik.http.routers.wpx.tls.certresolver=leresolver"
       - "traefik.http.routers.olsx.rule=Host(`litespeed.mednotizie.site`)" #Coloque o Seu Dominio Aqui
       - "traefik.http.routers.olsx.entrypoints=websecure"
-      - "traefik.http.services.olsx.loadbalancer.server.port=x080"
+      - "traefik.http.services.olsx.loadbalancer.server.port=7080"
       - "traefik.http.routers.olsx.service=olsx"
       - "traefik.http.routers.olsx.tls.certresolver=leresolver"
     restart: always
