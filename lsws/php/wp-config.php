@@ -88,7 +88,7 @@ define( 'WP_DEBUG', false );
 #redis - medictoday.site
 define('WP_REDIS_HOST', 'redis');
 define('WP_REDIS_PORT', 6379);
-define('WP_CACHE_KEY_SALT', 'medictoday.site');
+define('WP_CACHE_KEY_SALT', 'mydomain.com');
 #
 
 /* That's all, stop editing! Happy publishing. */
