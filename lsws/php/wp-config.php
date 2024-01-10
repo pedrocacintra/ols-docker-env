@@ -85,7 +85,7 @@ $table_prefix = 'wp_';
 define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
-#redis - medictoday.site
+#redis
 define('WP_REDIS_HOST', 'redis');
 define('WP_REDIS_PORT', 6379);
 define('WP_CACHE_KEY_SALT', 'mydomain.com');
