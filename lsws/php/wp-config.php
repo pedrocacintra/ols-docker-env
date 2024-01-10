@@ -86,10 +86,10 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 #redis
-define('WP_REDIS_HOST', 'redis');
-define('WP_REDIS_PASSWORD', 'redis_password');
-define('WP_REDIS_PORT', 6379);
-define('WP_CACHE_KEY_SALT', 'mydomain.com');
+#define('WP_REDIS_HOST', 'redis');
+#define('WP_REDIS_PASSWORD', 'redis_password');
+#define('WP_REDIS_PORT', 6379);
+#define('WP_CACHE_KEY_SALT', 'mydomain.com');
 #
 
 /* That's all, stop editing! Happy publishing. */
