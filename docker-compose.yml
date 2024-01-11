@@ -33,12 +33,12 @@ services:
       - ./logs:/usr/local/lsws/logs/
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wpx.rule=Host(`mednotizie.site`)" #Coloque o Seu Dominio Aqui
+      - "traefik.http.routers.wpx.rule=Host(`domain.com`)" #Type your domain here
       - "traefik.http.routers.wpx.entrypoints=websecure"
       - "traefik.http.services.wpx.loadbalancer.server.port=80"
       - "traefik.http.routers.wpx.service=wpx"
       - "traefik.http.routers.wpx.tls.certresolver=leresolver"
-      - "traefik.http.routers.olsx.rule=Host(`litespeed.mednotizie.site`)" #Coloque o Seu Dominio Aqui
+      - "traefik.http.routers.olsx.rule=Host(`litespeed.domain.com`)" #Type your domain here
       - "traefik.http.routers.olsx.entrypoints=websecure"
       - "traefik.http.services.olsx.loadbalancer.server.port=7080"
       - "traefik.http.routers.olsx.service=olsx"
