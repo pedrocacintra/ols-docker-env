@@ -6,7 +6,7 @@ services:
       driver: none
     env_file:
       - .env
-    command: --max_allowed_packet=256M
+    command: --max_allowed_packet=512M
     volumes:
       - "./data/db:/var/lib/mysql:delegated"
     environment:
