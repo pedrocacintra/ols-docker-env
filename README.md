@@ -23,8 +23,8 @@ Open a terminal, `cd` to the folder in which `docker compose.yml` is saved, and 
 ```
 docker compose up
 ```
-### If you are using Traefik + Portainer
-Open traefik's container inside Portainer-> Scroll down to "Connected Networks -> Join "traefik_vpc" and "ols-docker-env_ols_vpc"
+### Attach "ols-docker-env-x_ols_vpc" network to Traefik container
+Open Traefik's container inside Portainer-> Scroll down to "Connected Networks -> Join "traefik_vpc" and "ols-docker-env-x_ols_vpc"
 * If you can't see either of those, create the one missing, then add it.
 
 ### Start The Site
